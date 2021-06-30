@@ -19,6 +19,24 @@ namespace ControladorEstoque.Controllers
             _context = context;
         }
 
+        //Consulta de produtos:
+        public async Task<IActionResult> Consultar(string name)
+        {
+            if (name == null)
+            {
+                return NotFound();
+            }
+
+            var produto = await _context.Produto
+                .FirstOrDefaultAsync(m => m.Name == name);
+            if (produto == null)
+            {
+                return NotFound();
+            }
+
+            return View(produto);
+        }
+
         // GET: Produtos
         public async Task<IActionResult> Index()
         {
