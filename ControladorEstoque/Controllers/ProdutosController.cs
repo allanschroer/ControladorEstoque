@@ -12,7 +12,7 @@ namespace ControladorEstoque.Controllers
 {
     public class ProdutosController : Controller
     {
-        public readonly ControladorEstoqueContext _context;
+        public ControladorEstoqueContext _context;
 
         public ProdutosController(ControladorEstoqueContext context)
         {

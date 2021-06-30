@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ControladorEstoque.Migrations
 {
     [DbContext(typeof(ControladorEstoqueContext))]
-    [Migration("20210627180419_initial")]
-    partial class initial
+    [Migration("20210630015218_Inicial")]
+    partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -19,6 +19,27 @@ namespace ControladorEstoque.Migrations
                 .HasAnnotation("ProductVersion", "3.1.15")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("ControladorEstoque.Models.Entrada", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ProdutoId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Quantidade")
+                        .HasColumnType("float");
+
+                    b.Property<double>("ValorCompra")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Entrada");
+                });
 
             modelBuilder.Entity("ControladorEstoque.Models.Produto", b =>
                 {
@@ -45,6 +66,27 @@ namespace ControladorEstoque.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Produto");
+                });
+
+            modelBuilder.Entity("ControladorEstoque.Models.Saida", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ProdutoId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Quantidade")
+                        .HasColumnType("float");
+
+                    b.Property<double>("ValorVenda")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Saida");
                 });
 #pragma warning restore 612, 618
         }

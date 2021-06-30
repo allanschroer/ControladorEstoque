@@ -15,9 +15,9 @@ namespace ControladorEstoque.Models
         public double Quantidade { get; set; }
         
         public Produto() { }
-        public Produto(int id, int codigo, string name, string descricao, double valor, double quantidade)
+        public Produto( int codigo, string name, string descricao, double valor, double quantidade)
         {
-            Id = id;
+            
             Codigo = codigo;
             Name = name;
             Descricao = descricao;

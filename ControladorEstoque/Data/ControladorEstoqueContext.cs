@@ -14,6 +14,8 @@ namespace ControladorEstoque.Data
         {
         }
 
-        public DbSet<ControladorEstoque.Models.Produto> Produto { get; set; }
+        public DbSet<Produto> Produto { get; set; }
+        public DbSet<Entrada> Entrada { get; set; }
+        public DbSet<Saida> Saida { get; set; }
     }
 }
