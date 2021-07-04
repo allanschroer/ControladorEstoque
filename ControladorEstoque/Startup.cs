@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ControladorEstoque.Data;
+using ControladorEstoque.Services;
 
 namespace ControladorEstoque
 {
@@ -30,6 +31,7 @@ namespace ControladorEstoque
             services.AddDbContext<ControladorEstoqueContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("ControladorEstoqueContext")));
             services.AddScoped<SeedingService>();
+            services.AddScoped<SaidaService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

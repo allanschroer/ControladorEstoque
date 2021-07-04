@@ -9,12 +9,15 @@
 <p>
     <a asp-action="Create">Adicionar novo produto</a>
 </p>
-<form method="post" action ="/Produtos">
+<form method="post" action="/Produtos">
     <label>
-        Procurar pelo nome: 
-        <input/><input type="submit" value="Filtro" />
+        Procurar pelo nome:
+        <input /><input type="submit" value="Filtro" />
     </label>
- 
+    @{
+        TempData["msg"] = "<script>alert('Change succesfully');</script>"; 
+        }
+
 </form>
 <table class="table">
     <thead>
@@ -57,7 +60,7 @@
                     @Html.DisplayFor(modelItem => item.Quantidade)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Edit" asp-route-id="@item.Id" onclick="@Html.Raw(TempData["msg"])">Edit</a> |
                     <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                     <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                 </td>

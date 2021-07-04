@@ -50,6 +50,7 @@ namespace ControladorEstoque.Controllers
             {
                 return NotFound();
             }
+            
 
             var produto = await _context.Produto
                 .FirstOrDefaultAsync(m => m.Id == id);
