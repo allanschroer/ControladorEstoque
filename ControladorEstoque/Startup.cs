@@ -29,9 +29,10 @@ namespace ControladorEstoque
             services.AddControllersWithViews();
 
             services.AddDbContext<ControladorEstoqueContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("ControladorEstoqueContext")));
+                    options.UseMySQL(Configuration.GetConnectionString("ControladorEstoqueContext")));
             services.AddScoped<SeedingService>();
             services.AddScoped<SaidaService>();
+            services.AddScoped<ProdutoService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

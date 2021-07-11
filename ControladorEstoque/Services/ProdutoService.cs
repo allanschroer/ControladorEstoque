@@ -1,29 +1,24 @@
 ﻿using ControladorEstoque.Data;
+using ControladorEstoque.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ControladorEstoque.Models;
 
 namespace ControladorEstoque.Services
 {
-    public class SaidaService
+    public class ProdutoService
     {
         private readonly ControladorEstoqueContext _context;
 
-        public SaidaService(ControladorEstoqueContext context)
+        public ProdutoService(ControladorEstoqueContext context)
         {
             _context = context;
         }
 
-        public List<Produto> GetProdutos()
+        public List<Produto> FindAll()
         {
-            return _context.Produto.ToList();
-        }
-
-        public List<Saida> FindAll()
-        {
-            return _context.Saida.ToList();
+            return _context.Produto.OrderBy(x => x.Name).ToList();
         }
     }
 }

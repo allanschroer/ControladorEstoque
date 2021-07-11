@@ -12,10 +12,8 @@ namespace ControladorEstoque.Models
         public double ValorVenda { get; set; }
         public double Quantidade { get; set; }
 
-        public Saida() { }
         public Saida(int produtoId, double valorVenda, double quantidade)
         {
-           
             ProdutoId = produtoId;
             ValorVenda = valorVenda;
             Quantidade = quantidade;

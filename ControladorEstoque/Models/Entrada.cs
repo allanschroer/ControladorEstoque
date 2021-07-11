@@ -14,9 +14,8 @@ namespace ControladorEstoque.Models
 
         public Entrada() { }
 
-        public Entrada( int produtoId, double valorCompra, double quantidade)
+        public Entrada (int produtoId, double valorCompra, double quantidade)
         {
-            
             ProdutoId = produtoId;
             ValorCompra = valorCompra;
             Quantidade = quantidade;
