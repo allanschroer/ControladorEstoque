@@ -38,9 +38,15 @@ namespace ControladorEstoque.Controllers
         }
 
         // GET: Produtos
-        public async Task<IActionResult> Index()
+        public IActionResult Index(string consulta)
         {
-            return View(await _context.Produto.ToListAsync());
+            var produtos = from p in _context.Produto select p;
+
+                if (!String.IsNullOrEmpty(consulta))
+                {
+                    produtos = produtos.Where(p => p.Name.Contains(consulta));
+                }
+            return View(produtos);
         }
 
         // GET: Produtos/Details/5

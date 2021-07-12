@@ -10,13 +10,16 @@
     <a asp-action="Create">Adicionar novo produto</a>
 </p>
 <form method="post" action="/Produtos">
-    <label>
-        Procurar pelo nome:
-        <input /><input type="submit" value="Filtro" />
-    </label>
-    @{
-        TempData["msg"] = "<script>alert('Change succesfully');</script>"; 
-        }
+
+    @using (Html.BeginForm("Index","Produtos",FormMethod.Get))
+    {
+        <label>
+            Procurar pelo nome: @Html.TextBox("consulta")
+            <input type ="submit" value="consulta" />
+        </label>
+    }
+
+
 
 </form>
 <table class="table">
@@ -62,12 +65,12 @@
                     @Html.DisplayFor(modelItem => item.Quantidade)
                 </td>
                 <td>
-                    @ValorToral 
+                    @ValorToral;
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id" onclick="@Html.Raw(TempData["msg"])">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <a class="btn btn-outline-light" asp-action="Edit" asp-route-id="@item.Id">Editar</a> 
+                    <a class="btn btn-outline-light" asp-action="Details" asp-route-id="@item.Id">Detalhes</a> 
+                    <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
                 </td>
             </tr>
         }

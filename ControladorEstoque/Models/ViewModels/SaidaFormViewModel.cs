@@ -11,10 +11,10 @@ namespace ControladorEstoque.Models.ViewModels
         public Saida Saida { get; set; }
         public ICollection<Produto> Name { get; set; }
 
-        using (var context = new ControladorEstoqueContext())
+        /*using (var context = new ControladorEstoqueContext())
         {
 
         }
-
+        */
     }
 }
