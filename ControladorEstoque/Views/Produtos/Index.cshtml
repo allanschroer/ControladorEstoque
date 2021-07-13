@@ -22,7 +22,7 @@
 
 
 </form>
-<table class="table">
+<table class="table text-center table-hover">
     <thead>
         <tr>
             <th>
@@ -47,8 +47,8 @@
     <tbody>
         @foreach (var item in Model)
         {
-            double ValorToral = item.Quantidade * item.Valor;
             <tr>
+                
                 <td>
                     @Html.DisplayFor(modelItem => item.Codigo)
                 </td>
@@ -65,7 +65,7 @@
                     @Html.DisplayFor(modelItem => item.Quantidade)
                 </td>
                 <td>
-                    @ValorToral;
+                    @item.ValorTotal(item.Valor, item.Quantidade)
                 </td>
                 <td>
                     <a class="btn btn-outline-light" asp-action="Edit" asp-route-id="@item.Id">Editar</a> 

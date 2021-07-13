@@ -16,16 +16,23 @@ namespace ControladorEstoque.Models
         [DataType(DataType.Currency)]
         public double Valor { get; set; }
         public double Quantidade { get; set; }
-        
+
         public Produto() { }
-        public Produto( int codigo, string name, string descricao, double valor, double quantidade)
+        public Produto(int codigo, string name, string descricao, double valor, double quantidade)
         {
-            
+
             Codigo = codigo;
             Name = name;
             Descricao = descricao;
             Valor = valor;
             Quantidade = quantidade;
+        }
+        //Falta ajeitar isso bem certinho, é um provisório.
+        public string ValorTotal(double valor, double quantidade)
+        {
+            Valor = valor;
+            Quantidade = quantidade;
+            return "R$ " + (valor * quantidade).ToString("F2");
         }
 
 
